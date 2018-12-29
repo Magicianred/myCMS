@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
         $category->save();
         
-        return redirect()->back();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -66,7 +66,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -78,7 +80,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->name = $request->name;
+
+        $category->save();
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -89,6 +97,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->delete();
+
+        return redirect()->route('category.index');
     }
 }

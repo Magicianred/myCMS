@@ -12,9 +12,10 @@
         <tbody>
             @foreach($categories as $category)
                 <tr>
-                    <th>{{ $category->name }}</th>
-                    <th><a href="#">Edit</a></th>
-                    <th><a href="#">Delete</a></th>
+                    <td>{{ $category->name }}</td>
+                    <td><a href="{{ route('category.edit', ['id' => $category->id ]) }}" class="btn btn-xs btn-info">Edit</a></td>
+
+                    <td><a href="{{ route('category.destroy', ['id' => $category->id ]) }}" class="btn btn-xs btn-danger">Delete</a></td>
                 </tr>
                 
             @endforeach

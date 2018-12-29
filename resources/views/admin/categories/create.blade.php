@@ -6,13 +6,7 @@
         Create a new category
     </h2>
 
-    @if(count($errors)>0)
-        <ul class="list-group">
-            @foreach($errors->all() as $error)
-                <li class="list-group-item text-danger">{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+    @include('admin.includes.errors')
 
 
     <form method="POST" action="{{ route('category.store')}}" class="mt-5">
