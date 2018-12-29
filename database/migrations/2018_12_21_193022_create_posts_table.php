@@ -28,7 +28,7 @@ class CreatePostsTable extends Migration
      *
      * @return void
      */
-    public function down()123456
+    public function down()
     {
         Schema::dropIfExists('posts');
     }
